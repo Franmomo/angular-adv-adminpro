@@ -1,1 +1,74 @@
-<p>progress works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Striped Progress bar</h4>
+                <div class="progress m-t-20">
+                    <!-- style="width: {{progreso}}%; height:5px;"  -->
+                    <!-- [style.width]="progreso + '%' " -->
+                    <div class="progress-bar bg-primary progress-bar-striped active" 
+                         style="height:5px;"
+                         [style.width]="getProgreso1"
+                         role="progressbar"> 
+                    </div>
+                </div>
+
+                <div class="progress m-t-20">
+                    <div class="progress-bar bg-info progress-bar-striped active" 
+                         style="height:5px;"
+                         [style.width]="getProgreso2"
+                         role="progressbar"> 
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <!-- <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button"  (click)="cambiarValor(-5)">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </span>
+
+                    <input type="number" 
+                           class="form-control" 
+                           [(ngModel)]="progreso"
+                           placeholder="Progreso">
+
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" (click)="cambiarValor(5)">
+                            <i class="fa fa-plus"></i>
+                        </button>   
+                    </span>
+                </div>     -->
+            <app-incrementador (valorOutput)="progreso1 = $event" 
+                               [valorInput]="progreso1"
+                               btnClass="btn-primary">
+<!-- [btnClass]="btn btn-info"> Con las [] enviamos el valor de esa propiedad y no se pueden poner '-'  -->
+            </app-incrementador>
+            <!-- <app-incrementador (valorSalida)="cambioValorHijo( $event )" [progreso]="55"></app-incrementador> -->
+            <!-- <app-incrementador [valor]="55"></app-incrementador> -->
+        </div>
+    </div>
+</div>
+
+<div class="col-6">
+    <div class="card">
+        <div class="card-body">
+            <app-incrementador (valorOutput)="progreso2 = $event" 
+                                [valorInput]="progreso2"
+                                [btnClass]="'btn-info'">
+            </app-incrementador>
+            <!-- <app-incrementador [valor]="15"></app-incrementador> -->
+            </div>
+        </div>
+    </div>
+</div>
+
