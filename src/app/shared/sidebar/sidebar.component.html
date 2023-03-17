@@ -15,8 +15,8 @@
                         <li><a href="javascript:void()">Inbox</a></li>
                         <!-- <li><a href="javascript:void()">Account Setting</a></li> -->
                         <!-- <li><a routerLink="/dashboard/account-settings" routerLinkActive="router-link-active" >Account Setting</a></li> -->
-                        <li><a routerLink="account-settings" routerLinkActive="router-link-active" >Account Setting</a></li>
-                        <li><a routerLink="/login" routerLinkActive="router-link-active">Logout</a></li>
+                        <li><a routerLink="account-settings" routerLinkActive="active" >Account Setting</a></li>
+                        <li><a routerLink="/login" routerLinkActive="active">Logout</a></li>
                         <!-- <li><a href="javascript:void()">Logout</a></li> -->
                     </ul>
                 </li>
@@ -37,7 +37,9 @@
                     <ul aria-expanded="false" class="collapse">
                         <li *ngFor="let subMenuItem of item.submenu">
                             <!-- <a href="index.html"> -->
-                            <a [routerLink]='subMenuItem.url' routerLinkActive="router-link-active">
+                            <a [routerLink]='subMenuItem.url'
+                               routerLinkActive="active"
+                               [routerLinkActiveOptions]="{exact: true}">
                                 {{ subMenuItem.titulo }} 
                             </a>
                         </li>
